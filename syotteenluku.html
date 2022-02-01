@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Front End Development / React</title>
+  </head>
+  <body>
+    <!-- We will put our React component inside this div. -->
+    <div id="sovellus"></div>
+
+    <!-- Load React & Babel -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    <!-- Load our React component. -->
+    <script type="text/babel">
+      function Syotteenluku () {
+        const [name, setName] = React.useState({firsName: ' ', lastName: ' ' });
+
+        const inputChanged = (event) => {
+            setName({...name, [event.target.name]: event.target.value})
+        }
+
+        const sendAlert = () => {
+            alert('Hello ' + name.firstName + ' ' + name.lastName)
+        };
+
+
+        
+        return (
+
+            <div>
+                <input type="text" name="firstName" value={name.firstname} onChange={inputChanged} />
+                <input type="text" name="lastName" value={name.lastname} onChange={inputChanged} />
+                <button onClick={sendAlert} >Send</button>
+            </div>
+        )
+      }
+      
+      ReactDOM.render(<Syotteenluku text="asdf" />, document.getElementById('sovellus'));
+    </script>
+</body>
+</html>

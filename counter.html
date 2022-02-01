@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>React getting started</title>
+  </head>
+  <body>
+    <!-- Root container for react components -->
+    <div id="sovellus"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+      function Counter() {
+        const [counter, setCounter] = React.useState(0);
+
+        const increment = () => {
+            setCounter(counter + 1);
+        }
+        const decrease = () => {
+            setCounter(counter - 1);
+        }
+        const reset = () => {
+            setCounter(0);
+        }
+        return (
+          <div>
+            <p>You clicked button {counter} times </p>
+            <button onClick={increment}>+</button>
+            <button onClick={decrease}>-</button>
+            <button onClick={reset}>Reset</button>
+          </div>
+        );
+      };
+
+      ReactDOM.render(<Counter />, document.getElementById("sovellus"));
+    </script>
+  </body>
+</html>
